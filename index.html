@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Medicure Pharmacy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">Medicure Pharmacy</div>
+    <ul>
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" onclick="showPage('about')">About Us</a></li>
+      <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+      <li><a href="#" onclick="showPage('cart')">Cart (<span id="cart-count">0</span>)</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Home Page -->
+    <section id="home-page" class="page">
+      <h1>Welcome to Medicure Pharmacy</h1>
+      <p>Your trusted partner in health and wellness.</p>
+      <input type="text" id="search-input" placeholder="Search medicines or diseases..." oninput="searchMedicines()">
+      <div id="suggested-diseases">
+        <h3>Suggested Diseases:</h3>
+        <button onclick="filterByDisease('Fever')">Fever</button>
+        <button onclick="filterByDisease('Cold')">Cold</button>
+        <button onclick="filterByDisease('Headache')">Headache</button>
+        <button onclick="filterByDisease('Cough')">Cough</button>
+      </div>
+      <div id="medicine-list"></div>
+    </section>
+
+    <!-- About Us Page -->
+    <section id="about-page" class="page" style="display:none;">
+      <h1>About Us</h1>
+      <p>
+        Medicure Pharmacy has been serving the community since 1995. <br>
+        Our mission is to provide quality medicines at affordable prices, with care and compassion.
+      </p>
+      <h3>Our Team</h3>
+      <ul>
+        <li>Dr. Shubham Dadwal – Founder & Chief Pharmacist</li>
+        <li>Ankita Sharma – Customer Service Lead</li>
+        <li>Rahul Verma – Inventory Manager</li>
+      </ul>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact-page" class="page" style="display:none;">
+      <h1>Contact Us</h1>
+      <form id="contact-form" onsubmit="event.preventDefault();alert('Thank you for contacting us!');">
+        <label>Name: <input type="text" required></label><br>
+        <label>Email: <input type="email" required></label><br>
+        <label>Message:<br><textarea rows="4" required></textarea></label><br>
+        <button type="submit">Send</button>
+      </form>
+      <p>
+        <strong>Address:</strong> 123 Medicine Street, Health City<br>
+        <strong>Phone:</strong> +91 99999 88888<br>
+        <strong>Email:</strong> info@medicure.com
+      </p>
+    </section>
+
+    <!-- Cart/Receipt Page -->
+    <section id="cart-page" class="page" style="display:none;">
+      <h1>Your Cart</h1>
+      <div id="cart-table"></div>
+      <div id="cart-actions"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
